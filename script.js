@@ -131,6 +131,9 @@ const pageContents = [
             <p>Supervisan y coordinan para que el montaje se realice en tiempo y forma, siguiendo las indicaciones y planos del diseño de decoración.</p>
           </div>
         </div>
+        <div class="price-tag montaje-price">
+          <strong>DESDE:  250€</strong>
+        </div>
       </div>
     `
   },
