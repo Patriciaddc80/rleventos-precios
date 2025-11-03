@@ -163,7 +163,7 @@ const pageContents = [
             <li>Control de presupuesto</li>
           </ul>
           <div class="price-tag">
-            <strong>2.000€</strong>
+            <strong>2000€</strong>
           </div>
         </div>
         
@@ -185,7 +185,7 @@ Formaremos parte de su equipo durante todos estos meses, elaborando tanto la age
           </p>
           
           <div class="price-tag">
-            <strong>1.200€</strong>
+            <strong>1200€</strong>
           </div>
         </div>
 
@@ -281,7 +281,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
               <li>2 Rincones especiales</li>
             </ul>
             <div class="price-tag-inline">
-              <strong>3.500€</strong>
+              <strong>3500€</strong>
             </div>
           </div>
 
@@ -294,7 +294,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
               <li>Noche para novios Deluxe</li>
             </ul>
             <div class="price-tag-inline">
-              <strong>5.000€</strong>
+              <strong>5000€</strong>
             </div>
           </div>
         </div>
