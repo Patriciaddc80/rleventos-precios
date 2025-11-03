@@ -265,6 +265,26 @@
     font-weight: bold;
   }
 
+  .services-page-content {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-card-inline ul {
+      text-align: center;
+    }
+
+    .pricing-card-inline li {
+      text-align: center;
+    }
+
+    .services-page-content {
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+  }
+
   .price-tag-inline {
     text-align: center;
     margin-top: 20px;

@@ -7,13 +7,20 @@
    ======================================== */
 
 .service-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-  margin: var(--spacing-xl) 0;
+     display: grid
+;
+    grid-template-columns: 1fr;
+    gap: 4%;
+    max-width: 100%;
+}
+
+#servicios {
   overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
+  overflow-y: hidden;
+}
+
+#servicios .container {
+  overflow-x: hidden;
 }
 
 .service-card {
@@ -228,7 +235,6 @@
 
 /* Etiqueta de precio */
 .price-tag-inline {
-  background: rgba(212, 175, 55, 0.1);
   border: 1px solid #d4af37;
   border-radius: 8px;
   padding: 10px;
@@ -242,17 +248,6 @@
   color: #444443;
 }
 
-/* Disclaimer de precios */
-.packs-disclaimer-inline {
-  text-align: center;
-  font-size: 12px;
-  color: #666;
-  font-style: italic;
-  margin-top: 5px;
-  padding: 0 20px;
-  line-height: 1.5;
-  font-weight: 600;
-}
 .pricing-card-dia-b-services,
 .pricing-card-dia-b {
   font-size: 10px;
@@ -284,6 +279,66 @@
       border-radius: 10px;
       justify-content: space-evenly;
 }
+
+.consultar-btn {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consultar-btn:hover,
+.consultar-btn:focus {
+  background-color: white;
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.consultar-btn:hover strong,
+.consultar-btn:focus strong {
+  color: #000;
+  font-weight: 500;
+}
+
+.consultar-btn strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+}
+
+.price-tag-inline.consultar-btn,
+.price-tag.consultar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d4af37;
+}
+
+.price-tag-inline.consultar-btn strong {
+  font-size: 14px;
+  color: white;
+}
+
+/* Botones CONSULTAR en packs - hover con letras rojas */
+.pack-card .consultar-btn:hover,
+.pack-card .consultar-btn:focus {
+  background-color: white;
+  color: red;
+}
+
+.pack-card .consultar-btn:hover strong,
+.pack-card .consultar-btn:focus strong {
+  color: red;
+  font-weight: 500;
+}
+
 /* ========================================
    RINCONES GRID
    ======================================== */
@@ -365,12 +420,20 @@
   padding: 12px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s 
+ease;
   border: 1px solid #d4af37;
-  display: flex;
+  display: flex
+;
   flex-direction: column;
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .pack-card:hover {
@@ -532,6 +595,7 @@
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
+  text-align: justify;
 }
 
 /* ========================================
@@ -663,7 +727,7 @@
 
 @media (min-width: 480px) {
   .service-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .services-extra-grid {
@@ -685,6 +749,19 @@
 
   .page-separator {
     margin-bottom: 20px;
+  }
+
+  .services-page-content {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .pricing-card-inline ul {
+    text-align: center;
+  }
+
+  .pricing-card-inline li {
+    text-align: center;
   }
 
   .separator-line {
@@ -729,7 +806,7 @@
   }
 
   .services-extra h4 {
-    font-size: 20px;
+    margin-top: 12%;
     margin-bottom: 15px;
   }
 
@@ -781,6 +858,19 @@
   .separator-line {
     width: 60px;
     height: 2px;
+  }
+
+  .services-page-content {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .pricing-card-inline ul {
+    text-align: center;
+  }
+
+  .pricing-card-inline li {
+    text-align: center;
   }
 
   .pricing-card-inline {
@@ -957,11 +1047,7 @@
   }
 
   .gallery-item {
-    border-radius: 8px;
-    background: white;
-    padding: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+        transition: all 0.3s ease;
   }
 
   .gallery-item:hover {
@@ -1018,7 +1104,84 @@
 
 @media (max-width: 480px) {
   .contact-logo img {
-    width: 80px;
+    width: 25%;
+    border: 3px solid #e8e8e8;
+    border-radius: 50%;
+    color: white;
+  }
+}
+
+/* ========================================
+   CONTACTO - INFO
+   ======================================== */
+
+.contact-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info h2 {
+  text-align: center;
+}
+
+.contact-info p {
+  text-align: center;
+  font-size: 15px;
+  border-bottom: 1px solid #d4af37;
+  font-weight: 500;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-xs) 0;
+}
+
+.contact-item svg {
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  text-align: center;
+}
+
+/* Grid para Instagram y WhatsApp */
+.contact-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 400px;
+  margin: 15px auto;
+  width: 100%;
+}
+
+.contact-social-grid .contact-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* Centrado en móvil */
+@media (max-width: 768px) {
+  .contact-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .contact-info h2,
+  .contact-info p {
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-item a {
+    text-align: center;
   }
 }
 
@@ -1126,6 +1289,17 @@
 }
 
 /* ========================================
+   FOOTER VISIBILITY RULES
+   ======================================== */
+@media (min-width: 769px) {
+  .mobile-footer { display: none; }
+}
+
+@media (max-width: 768px) {
+  .mobile-footer { display: block; }
+}
+
+/* ========================================
    SERVICIO DE MONTAJE
    ======================================== */
 
@@ -1184,7 +1358,6 @@
   .montaje-feature h4 {
     font-size: 16px;
   }
-
 }
 
 /* Tablet adjustments */

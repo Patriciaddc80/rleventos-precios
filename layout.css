@@ -160,13 +160,14 @@
 .hero-content {
   position: relative;
   margin-top: 8%;
-  border-radius: 100px;
   z-index: 1;
   text-align: center;
   max-width: 800px;
   padding: var(--spacing-xxl) var(--spacing-lg);
   box-shadow: var(--shadow-xl);
-  animation: fadeInUp 0.8s ease-out;
+  animation: fadeInUp 0.8s 
+ease-out;
+  border-radius: 9rem;
 }
 
 .hero-rings {
@@ -174,9 +175,8 @@
 }
 
 .rings-img {
-  opacity: 1;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
-  height: auto;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    height: auto;
 }
 
 .hero-logo {
@@ -240,7 +240,7 @@
 .section-header h3 {
   font-size: clamp(1rem, 2vw + 0.5rem, 1.3rem);
   font-weight: var(--font-weight-normal);
-  color: var(--color-text-lighter);
+  color: var(--color-text);
   margin-top: var(--spacing-md);
   line-height: 1.6;
   max-width: 600px;

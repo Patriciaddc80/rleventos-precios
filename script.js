@@ -106,27 +106,23 @@ const pageContents = [
   },
   {
     right: `
-      <div class="page-content-wrapper">
+      <div class="page-content-wrapper montaje-page-wrapper">
         <h2 class="page-title">EL SERVICIO DE MONTAJE</h2>
         <div class="page-separator">
           <div class="separator-line"></div>
         </div>
-        <div class="montaje-content">
-          <p class="montaje-intro">Este servicio se centra en la colocación, distribución y montaje de elementos decorativos, detalles personalizados, centros de mesas, señalización, regalos y otros elementos decorativos en el lugar del evento.</p>
-          
-          <h4 class="montaje-subtitle">Características de este servicio</h4>
-          
-          <div class="montaje-feature">
+        <div class="montaje-content-centered">
+          <div class="montaje-content-box">
+            <p>Este servicio se centra en la colocación, distribución y montaje de elementos decorativos, detalles personalizados, centros de mesas, señalización, regalos y otros elementos decorativos en el lugar del evento.</p>
+            
+            <h3 style="margin-top: 4%;">Características de este servicio</h3>
+            
             <h4>Foco exclusivo en montaje</h4>
             <p>La función principal es la colocación y montaje de todos los detalles y decoración en su lugar correspondiente días o horas antes del evento.</p>
-          </div>
-          
-          <div class="montaje-feature">
+            
             <h4>Responsabilidad en la logística</h4>
             <p>Se encarga de realizar la distribución correcta de los detalles, mesas, centros, señalización, rincón de invitados, etc., asegurando que todo quede en su sitio y con la estética deseada.</p>
-          </div>
-          
-          <div class="montaje-feature">
+            
             <h4>Supervisión durante la instalación</h4>
             <p>Supervisan y coordinan para que el montaje se realice en tiempo y forma, siguiendo las indicaciones y planos del diseño de decoración.</p>
           </div>
@@ -148,7 +144,7 @@ const pageContents = [
       <div class="pricing-grid">
         <div class="pricing-card">
           <h3>¿POR QUÉ NECESITÁIS EL SERVICIO INTEGRAL?</h3>
-          <ul>
+          <ul class="pricing-card-list">
             <li>Porque no tenéis tiempo de organizar vuestra boda.</li>
             <li>Queréis un servicio profesional completo.</li>
             <li>Deseáis una boda diferente y original.</li>
@@ -156,20 +152,20 @@ const pageContents = [
             <li>Necesitáis todo el asesoramiento y ayuda profesional.</li>
           </ul>
           <h4>¿CÓMO PODEMOS AYUDAROS?</h4>
-          <ul>
+          <ul class="pricing-card-list"s>
             <li>Reunión previa</li>
             <li>Check list completo</li>
             <li>Calendario de tareas</li>
             <li>Control de presupuesto</li>
           </ul>
-          <div class="price-tag">
-            <strong>2.000€</strong>
-          </div>
+          <a href="https://wa.me/34657092014" class="price-tag consultar-btn" target="_blank" rel="noopener noreferrer">
+            <strong>CONSULTAR</strong>
+          </a>
         </div>
         
         <div class="pricing-card">
           <h3>ASESORAMIENTO Y COORDINACIÓN DEL DÍA B</h3>
-          <ul>
+          <ul class="pricing-card-list">
             <li>Creación de concepto visual</li>
             <li>Moodboard y paleta de colores</li>
             <li>Montaje y desmontaje</li>
@@ -184,14 +180,14 @@ Con nuestro servicio, pueden delegar parte de las responsabilidades mientras los
 Formaremos parte de su equipo durante todos estos meses, elaborando tanto la agenda como el protocolo desde el primer momento, para garantizar que todo salga a la perfección en su gran día.
           </p>
           
-          <div class="price-tag">
-            <strong>1.200€</strong>
-          </div>
+          <a href="https://wa.me/34657092014" class="price-tag consultar-btn" target="_blank" rel="noopener noreferrer">
+            <strong>CONSULTAR</strong>
+          </a>
         </div>
 
         <div class="pricing-card">
           <h3>COORDINACIÓN DEL DÍA B</h3>
-          <ul>
+          <ul class="pricing-card-list">
             <li>Supervisión de proveedores</li>
             <li>Control de tiempos</li>
             <li>Gestión de imprevistos</li>
@@ -203,9 +199,9 @@ Formaremos parte de su equipo durante todos estos meses, elaborando tanto la age
 Nuestro servicio de coordinación para el gran día es un ballet de planificación y organización, asegurando que todo se desarrolle como un cuento de hadas.
 
 A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: Elaboramos un cronograma detallado para que cada momento sea verdaderamente mágico..</p>
-          <div class="price-tag">
-            <strong>850€</strong>
-          </div>
+          <a href="https://wa.me/34657092014" class="price-tag consultar-btn" target="_blank" rel="noopener noreferrer">
+            <strong>CONSULTAR</strong>
+          </a>
         </div>
       </div>
       </div>
@@ -262,44 +258,43 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
         <div class="pack-grid-inline">
           <div class="pack-card-inline">
             <h3>Pack Básico</h3>
-            <ul>
+            <ul class="pricing-card-list">
               <li>Coordinación del día</li>
               <li>Supervisión de proveedores</li>
               <li>Control de tiempos</li>
             </ul>
-            <div class="price-tag-inline">
-              <strong>800€</strong>
-            </div>
+            <a href="https://wa.me/34657092014" class="price-tag-inline consultar-btn" target="_blank" rel="noopener noreferrer">
+              <strong>CONSULTAR</strong>
+            </a>
           </div>
 
           <div class="pack-card-inline">
             <h3>Pack Completo</h3>
-            <ul>
+            <ul class="pricing-card-list">
               <li>Organización integral</li>
               <li>Diseño y decoración</li>
               <li>Coordinación del día</li>
               <li>2 Rincones especiales</li>
             </ul>
-            <div class="price-tag-inline">
-              <strong>3.500€</strong>
-            </div>
+            <a href="https://wa.me/34657092014" class="price-tag-inline consultar-btn" target="_blank" rel="noopener noreferrer">
+              <strong>CONSULTAR</strong>
+            </a>
           </div>
 
           <div class="pack-card-inline pack-featured-inline">
             <div class="pack-badge-inline">Popular</div>
             <h3>Pack Premium</h3>
-            <ul>
+            <ul class="pricing-card-list">
               <li>Todo el Pack Completo</li>
               <li>Invitaciones personalizadas</li>
               <li>Noche para novios Deluxe</li>
             </ul>
-            <div class="price-tag-inline">
-              <strong>5.000€</strong>
-            </div>
+            <a href="https://wa.me/34657092014" class="price-tag-inline consultar-btn" target="_blank" rel="noopener noreferrer">
+              <strong>CONSULTAR</strong>
+            </a>
           </div>
         </div>
       </div>
-        <p class="packs-disclaimer-inline">*Los precios son orientativos y pueden variar según invitados, localización y personalización.*</p>
     `
   },
   {
@@ -432,7 +427,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
             <img src="assets/material-img/javier_julia-106.jpg" alt="Boda Elegante 3" loading="lazy">
           </div>
            <div class="gallery-item">
-            <img src="assets/material-img/IMG_0452.JPG" alt="Boda Elegante 3" loading="lazy">
+            <img src="assets/material-img/IMG_0452.jpg" alt="Boda Elegante 3" loading="lazy">
           </div>
         </div>
       </div>
@@ -455,10 +450,10 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
             <img src="assets/material-img/718.jpg" alt="Celebración Especial 1" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="assets/material-img/IMG_2083.JPG" alt="Celebración Especial 2" loading="lazy">
+            <img src="assets/material-img/IMG_2083.jpg" alt="Celebración Especial 2" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="assets/material-img/IMG_2084.JPG" alt="Celebración Especial 3" loading="lazy">
+            <img src="assets/material-img/IMG_2084.jpg" alt="Celebración Especial 3" loading="lazy">
           </div>
         </div>
       </div>
@@ -481,10 +476,10 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
             <img src="assets/material-img/javier_julia-866.jpg" alt="Momento Único 1" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="assets/material-img/IMG_0446.JPG" alt="Momento Único 2" loading="lazy">
+            <img src="assets/material-img/IMG_0446.jpg" alt="Momento Único 2" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="assets/material-img/IMG_0445.JPG" alt="Momento Único 3" loading="lazy">
+            <img src="assets/material-img/IMG_0445.jpg" alt="Momento Único 3" loading="lazy">
           </div>
         </div>
       </div>
@@ -534,7 +529,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
             <img src="assets/material-img/1227.jpg" alt="Detalle Perfecto 2" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="assets/material-img/IMG_0447.JPG" alt="Detalle Perfecto 3" loading="lazy">
+            <img src="assets/material-img/IMG_0447.jpg" alt="Detalle Perfecto 3" loading="lazy">
           </div>
         </div>
       </div>
