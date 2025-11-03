@@ -279,6 +279,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
               <li>Diseño y decoración</li>
               <li>Coordinación del día</li>
               <li>2 Rincones especiales</li>
+              <li>Servicio de Montaje</li>
             </ul>
             <div class="price-tag-inline">
               <strong>3500€</strong>
@@ -292,6 +293,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
               <li>Todo el Pack Completo</li>
               <li>Invitaciones personalizadas</li>
               <li>Noche para novios Deluxe</li>
+              <li>Servicio de Montaje</li>
             </ul>
             <div class="price-tag-inline">
               <strong>5000€</strong>
