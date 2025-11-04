@@ -7,11 +7,10 @@
    ======================================== */
 
 .service-grid {
-     display: grid
-;
-    grid-template-columns: 1fr;
-    gap: 4%;
-    max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4%;
+  max-width: 100%;
 }
 
 #servicios {
@@ -268,16 +267,17 @@
 }
 .price-tag {
   display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      text-align: center;
-      width: 28%;
-      padding: 10px;
-      background-color: white;
-      border: 1px solid #d4af37;
-      border-radius: 10px;
-      justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  width: 28%;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  justify-content: space-evenly;
 }
 
 .consultar-btn {
@@ -307,8 +307,8 @@
 
 .consultar-btn strong {
   display: block;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 600;
   text-align: center;
   color: white;
 }
@@ -425,11 +425,9 @@
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: all 0.3s 
-ease;
+  transition: all 0.3s ease;
   border: 1px solid #d4af37;
-  display: flex
-;
+  display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
@@ -1029,9 +1027,9 @@ ease;
   }
 
   .price-tag {
-    margin-top: 10px;
-        width: auto;
-        width: 50%;
+    margin-top: 20px;
+    width: auto;
+    width: 50%;
   }
 
   .pack-nav-btn {
@@ -1047,7 +1045,7 @@ ease;
   }
 
   .gallery-item {
-        transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   .gallery-item:hover {
@@ -1292,11 +1290,15 @@ ease;
    FOOTER VISIBILITY RULES
    ======================================== */
 @media (min-width: 769px) {
-  .mobile-footer { display: none; }
+  .mobile-footer {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-  .mobile-footer { display: block; }
+  .mobile-footer {
+    display: block;
+  }
 }
 
 /* ========================================
@@ -1422,13 +1424,12 @@ ease;
 /* Precio de montaje específico */
 .montaje-price {
   display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-     
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .montaje-price strong {
@@ -1439,7 +1440,6 @@ ease;
 
 /* Desktop ajustes para montaje price */
 @media (min-width: 1024px) {
-  
   .montaje-price strong {
     font-size: 32px;
   }
@@ -1452,7 +1452,7 @@ ease;
     padding: 18px;
     max-width: 350px;
   }
-  
+
   .montaje-price strong {
     font-size: 26px;
   }
@@ -1465,7 +1465,7 @@ ease;
     padding: 15px;
     max-width: 300px;
   }
-  
+
   .montaje-price strong {
     font-size: 24px;
   }
