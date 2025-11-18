@@ -251,7 +251,7 @@
   }
 
   .back-cover-title {
-    font-size: 100px;
+    font-size: 50px;
     font-weight: 100;
     color: var(--color-text);
     margin-top: 15px;
@@ -295,25 +295,41 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    padding: 15px 20px;
+    background-color: rgba(212, 184, 150, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .footer-links:hover {
+    background-color: rgba(212, 184, 150, 0.08);
   }
 
   .footer-separator {
-    margin: 0 8px;
-    color: #999;
+    margin: 0 4px;
+    color: rgba(153, 153, 153, 0.5);
+    font-weight: 300;
   }
 
   .footer-link {
-    color: #999;
+    color: #666;
     text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
   }
 
   .footer-link:hover {
     color: var(--color-primary);
+    background-color: rgba(212, 184, 150, 0.1);
+    transform: translateY(-1px);
   }
 
   .footer-text {
-    color: #999;
+    color: #666;
+    font-weight: 400;
   }
 
   .developer-link {
@@ -808,6 +824,7 @@
   max-width: 75%;
   margin: 0px auto 20px;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 /* Grid de galería para desktop - columnas */

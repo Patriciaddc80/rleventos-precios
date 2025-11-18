@@ -52,7 +52,7 @@
     box-shadow: 0 1px 3px rgba(212, 184, 150, 0.3);
   }
 
-  .page-title {
+  .page-title-services{
     font-size: 28px;
     font-weight: 900;
     color: #000;
@@ -617,18 +617,27 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #e8e8e8;
+    padding: 14px 16px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border-bottom: none;
     transition: all 0.3s ease;
+    background-color: rgba(212, 184, 150, 0.05);
+  }
+
+  .contact-item-desktop:hover {
+    background-color: rgba(212, 184, 150, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 184, 150, 0.15);
   }
 
   .contact-item-desktop:last-child {
     border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: 14px;
   }
 
   .contact-item-desktop:first-child {
-    padding-top: 0;
+    padding-top: 14px;
   }
 
   .contact-item-desktop svg {
@@ -636,6 +645,11 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-item-desktop:hover svg {
+    transform: scale(1.15);
   }
 
   .contact-item-desktop a {

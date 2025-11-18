@@ -65,7 +65,7 @@ const pageContents = [
   {
     right: `
       <div class="services-page-content">
-      <h2 class="page-title">NUESTROS SERVICIOS</h2>
+      <h2 class="page-title-services">NUESTROS SERVICIOS</h2>
       <div class="page-separator">
         <div class="separator-line"></div>
       </div>
@@ -527,7 +527,7 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
       </div>
       
       <div class="gallery-section">
-        <p class="gallery-description"> La excelencia se encuentra en los pequeños detalles que marcan la diferencia. Cada elemento está cuidadosamente seleccionado para crear una experiencia inolvidable y perfecta. </p>
+      
           <div class="gallery-grid">
           <div class="gallery-item">
             <img src="assets/material-img/842.jpg" alt="Detalle Perfecto 1" loading="lazy">
@@ -1172,3 +1172,122 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+/* ========================================
+   CARRUSEL MODERNO DE PROCESO
+   ======================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.getElementById('procesoModernCarousel');
+  const indicatorsContainer = document.getElementById('procesoModernIndicators');
+  const progressBar = document.getElementById('procesoProgressBar');
+  
+  if (!carousel) return;
+  
+  const slides = carousel.querySelectorAll('.proceso-modern-slide');
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoPlayInterval = null;
+  let progressInterval = null;
+  const slideDuration = 4000; // 4 segundos por slide
+  
+  // Crear indicadores
+  if (indicatorsContainer) {
+    slides.forEach((_, index) => {
+      const indicator = document.createElement('button');
+      indicator.className = 'proceso-modern-indicator';
+      if (index === 0) indicator.classList.add('active');
+      indicator.setAttribute('aria-label', `Paso ${index + 1}`);
+      indicator.addEventListener('click', () => goToSlide(index));
+      indicatorsContainer.appendChild(indicator);
+    });
+  }
+  
+  const indicators = indicatorsContainer ? indicatorsContainer.querySelectorAll('.proceso-modern-indicator') : [];
+  
+  function updateCarousel() {
+    // Actualizar slides
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentIndex);
+    });
+    
+    // Actualizar indicadores
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentIndex);
+    });
+    
+    // Reiniciar barra de progreso
+    if (progressBar) {
+      progressBar.style.width = '0%';
+      startProgress();
+    }
+  }
+  
+  function startProgress() {
+    if (!progressBar) return;
+    
+    // Limpiar intervalo anterior
+    if (progressInterval) {
+      clearInterval(progressInterval);
+    }
+    
+    // Animar barra de progreso
+    let progress = 0;
+    const increment = 100 / (slideDuration / 16); // 60fps
+    
+    progressInterval = setInterval(() => {
+      progress += increment;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(progressInterval);
+      }
+      progressBar.style.width = progress + '%';
+    }, 16);
+  }
+  
+  function goToSlide(index) {
+    if (index < 0 || index >= totalSlides) return;
+    currentIndex = index;
+    updateCarousel();
+  }
+  
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+  
+  function startAutoPlay() {
+    if (!autoPlayInterval) {
+      updateCarousel(); // Inicializar
+      autoPlayInterval = setInterval(() => {
+        nextSlide();
+      }, slideDuration);
+    }
+  }
+  
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+    if (progressInterval) {
+      clearInterval(progressInterval);
+      progressInterval = null;
+    }
+  }
+  
+  // Pausar al interactuar
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+    carousel.addEventListener('touchstart', stopAutoPlay);
+    carousel.addEventListener('touchend', () => {
+      setTimeout(startAutoPlay, 1000);
+    });
+  }
+  
+  // Iniciar auto-play
+  startAutoPlay();
+  
+  // Limpiar al salir de la página
+  window.addEventListener('beforeunload', stopAutoPlay);
+});

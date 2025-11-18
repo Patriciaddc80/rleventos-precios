@@ -339,9 +339,21 @@ ease-out;
   visibility: visible;
 }
 
+/* Animación para botones de navegación */
+@keyframes navBtnPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
 .nav-btn {
-  background: var(--color-white);
-  color: var(--color-primary);
+  background: transparent;
+  color: #c9a87c;
   border: none;
   padding: 0;
   width: 50px;
@@ -350,22 +362,35 @@ ease-out;
   cursor: pointer;
   transition: all var(--transition-normal);
   pointer-events: all;
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: navBtnPulse 2s ease-in-out infinite;
 }
 
 .nav-btn svg {
   width: 24px;
   height: 24px;
+  fill: #c9a87c;
+  transition: transform 0.3s ease;
 }
 
 .nav-btn:hover:not(:disabled) {
   transform: scale(1.15);
-  box-shadow: var(--shadow-xl);
-  background: var(--color-primary);
-  color: var(--color-white);
+  box-shadow: none;
+  background: transparent;
+  color: #b8966a;
+  animation: none;
+}
+
+.nav-btn:hover:not(:disabled) svg {
+  fill: #b8966a;
+  transform: translateX(3px);
+}
+
+#prevBtn:hover:not(:disabled) svg {
+  transform: translateX(-3px);
 }
 
 .nav-btn:active:not(:disabled) {
@@ -376,6 +401,7 @@ ease-out;
   opacity: 0.3;
   cursor: not-allowed;
   transform: scale(0.9);
+  animation: none;
 }
 
 /* ========================================
