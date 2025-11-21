@@ -60,7 +60,7 @@
     align-items: center;
     text-align: center;
     height: 100vh;
-    background: url(../assets/img/image35.jpg) center/cover;
+    background: url(assets/img/image35.jpg) center/cover;
     background-attachment: fixed;
     position: relative;
     animation: fadeIn 0.8s ease-out;
@@ -107,8 +107,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px #c9baa642;
     backdrop-filter: blur(10px);
+    border: 1px solid burlywood;
+}
   }
 
   .logo-image {
@@ -152,10 +154,6 @@
     width: 100%;
     height: 100%;
     background: var(--color-white);
-    background-image: url("../assets/img/paper-texture.jpg");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
     box-shadow:
       inset 0 0 50px rgba(0, 0, 0, 0.1),
       0 0 30px rgba(0, 0, 0, 0.15);
@@ -226,11 +224,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-image: url("../assets/img/paper-texture.jpg");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     position: relative;
   }
 
@@ -251,11 +244,10 @@
   }
 
   .back-cover-title {
-    font-size: 50px;
-    font-weight: 100;
+    font-size: 2.5rem;
+    font-weight: 400;
     color: var(--color-text);
-    margin-top: 15px;
-    letter-spacing: 10px;
+    margin-top: 2%;
   }
 
   .back-cover-text {
@@ -265,10 +257,19 @@
   }
 
   .back-cover-logo {
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .back-cover-logo .logo-circle {
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .back-cover-logo h3 {
@@ -297,7 +298,6 @@
     align-items: center;
     gap: 12px;
     padding: 15px 20px;
-    background-color: rgba(212, 184, 150, 0.05);
     border-radius: 12px;
     transition: all 0.3s ease;
   }
@@ -341,7 +341,7 @@
   .instagram-icon {
     margin-right: 0;
   }
-}
+
 
 /* ========================================
    PÁGINA DE CONTENIDO - QUIÉNES SOMOS
@@ -480,7 +480,6 @@
   align-items: center;
   justify-items: center;
   justify-content: space-evenly;
-  overflow-x: hidden;
   width: 100%;
   max-width: 100%;
 }
@@ -529,7 +528,6 @@
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 20px;
-  overflow-x: hidden;
   width: 100%;
   box-sizing: border-box;
 }
@@ -612,7 +610,6 @@
   width: 50px;
   height: 50px;
   background: #ceb04f;
-  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -682,7 +679,6 @@
 }
 
 .testimonial-2 .testimonial-single-image img {
-  width: 50% !important;
   width: 50% !important;
   margin-left: 15%;
   object-fit: cover;
@@ -768,7 +764,6 @@
   color: #666;
   line-height: 1.7;
   font-style: italic;
-  margin-bottom: 15px;
   margin: 18px;
   text-align: justify;
 }
@@ -1020,11 +1015,15 @@
 
   .pricing-card ul {
     text-align: center;
+    margin-bottom: 15px;
   }
 
   .pricing-card li {
+    font-size: 13px;
     text-align: center;
     justify-content: center;
+    margin-bottom: 5px;
+    padding-left: 20px;
   }
 
   .pricing-card h3 {
@@ -1035,16 +1034,6 @@
 
   .pricing-card h4 {
     font-size: 14px;
-  }
-
-  .pricing-card ul {
-    margin-bottom: 15px;
-  }
-
-  .pricing-card li {
-    font-size: 13px;
-    margin-bottom: 5px;
-    padding-left: 20px;
   }
 
   .pricing-card li::before {
@@ -1142,6 +1131,31 @@
     width: 100%;
     text-align: center;
     margin: 5px 0;
+  }
+
+  /* Botón rleventos.com en back-cover */
+  .back-cover-logo > div[style*="text-align: center"] > div[style*="margin-top: 40px"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .back-cover-logo > div[style*="text-align: center"] > div[style*="margin-top: 40px"] > a[href="https://rleventos.com/"] {
+    display: block !important;
+    margin: 0 auto !important;
+    transform: scale(0.5) !important;
+    transform-origin: center !important;
+  }
+
+  .back-cover-logo > div[style*="text-align: center"] > div[style*="margin-top: 40px"] > a[href="https://rleventos.com/"]:hover {
+    background-color: #c9a87c !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(212, 184, 150, 0.5) !important;
   }
 
   .back-cover-footer {

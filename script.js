@@ -3,7 +3,7 @@
    ======================================== */
 
 // Función helper para detectar modo desktop
-const isDesktop = () => window.innerWidth >= 1024;
+const isDesktop = () => globalThis.innerWidth >= 1024;
 
 // Debounce function para optimizar eventos de resize
 function debounce(func, wait) {
@@ -20,19 +20,21 @@ function debounce(func, wait) {
 
 // Intersection Observer para lazy loading mejorado
 const observeElements = (selector, callback) => {
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in globalThis) {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      for (const entry of entries) {
         if (entry.isIntersecting) {
           callback(entry.target);
           observer.unobserve(entry.target);
         }
-      });
+      }
     }, {
       rootMargin: '50px'
     });
 
-    document.querySelectorAll(selector).forEach(el => observer.observe(el));
+    for (const el of document.querySelectorAll(selector)) {
+      observer.observe(el);
+    }
   }
 };
 
@@ -527,7 +529,8 @@ A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: El
       </div>
       
       <div class="gallery-section">
-      
+        <h3 class="gallery-description">La magia está en los detalles que hacen especial cada celebración. Capturamos esos instantes únicos que se convierten en recuerdos eternos para nuestros clientes.</h3>
+        
           <div class="gallery-grid">
           <div class="gallery-item">
             <img src="assets/material-img/842.jpg" alt="Detalle Perfecto 1" loading="lazy">
@@ -569,7 +572,6 @@ class DesktopBook {
     // Verificar que todos los elementos existen
     if (!this.validateElements()) {
       console.error('Error: No se encontraron todos los elementos necesarios');
-      return;
     }
   }
 
@@ -620,9 +622,9 @@ class DesktopBook {
   showView(viewName) {
     try {
       // Ocultar todas las vistas
-      Object.values(this.views).forEach(view => {
+      for (const view of Object.values(this.views)) {
         if (view) view.classList.remove('active');
-      });
+      }
 
       // Mostrar la vista actual
       if (this.views[viewName]) {
@@ -649,12 +651,12 @@ class DesktopBook {
     };
 
     // Agregar eventos de mouse a todas las vistas
-    Object.values(this.views).forEach(view => {
+    for (const view of Object.values(this.views)) {
       if (view) {
         view.addEventListener('mouseenter', showControls);
         view.addEventListener('mouseleave', hideControls);
       }
-    });
+    }
 
     // También agregar eventos a los botones para mantenerlos visibles cuando se hace hover sobre ellos
     if (this.controls) {
@@ -783,7 +785,7 @@ class Navigation {
     this.hamburger.addEventListener('click', () => this.toggleMenu());
 
     // Cerrar al hacer click en links
-    this.navLinks.forEach(link => {
+    for (const link of this.navLinks) {
       link.addEventListener('click', () => {
         this.closeMenu();
         // Scroll suave al destino
@@ -797,7 +799,7 @@ class Navigation {
           }
         }
       });
-    });
+    }
 
     // Cerrar al hacer click fuera
     document.addEventListener('click', (e) => {
@@ -839,7 +841,6 @@ class GalleryLightbox {
 
     if (!this.overlay) {
       console.error('Error: Elementos de galería no encontrados');
-      return;
     }
   }
 
@@ -850,16 +851,16 @@ class GalleryLightbox {
     this.images = Array.from(galleryItems).map(item => {
       const img = item.querySelector('img');
       return img ? img.src : '';
-    }).filter(src => src);
+    }).filter(Boolean);
 
-    galleryItems.forEach((item, index) => {
+    for (const [index, item] of Array.from(galleryItems).entries()) {
       item.addEventListener('click', () => this.open(index));
       item.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           this.open(index);
         }
       });
-    });
+    }
 
     // Event listeners para botones
     if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
@@ -894,12 +895,20 @@ class GalleryLightbox {
 
     this.currentIndex = index;
     this.updateImage();
-    this.overlay.classList.add('active');
+    if (this.overlay instanceof HTMLDialogElement) {
+      this.overlay.showModal();
+    } else {
+      this.overlay.classList.add('active');
+    }
     document.body.style.overflow = 'hidden'; // Prevenir scroll
   }
 
   close() {
-    this.overlay.classList.remove('active');
+    if (this.overlay instanceof HTMLDialogElement) {
+      this.overlay.close();
+    } else {
+      this.overlay.classList.remove('active');
+    }
     document.body.style.overflow = ''; // Restaurar scroll
   }
 
@@ -972,22 +981,23 @@ const handleResize = debounce(() => {
   wasDesktop = nowDesktop;
 }, 250);
 
-window.addEventListener('resize', handleResize);
+globalThis.addEventListener('resize', handleResize);
 
 // ========================================
 // FUNCIONALIDAD DE GALERÍA CON LIGHTBOX
 // ========================================
 
 class GalleryModal {
+  modal = null;
+  modalImage = null;
+  modalCaption = null;
+  modalClose = null;
+  modalPrev = null;
+  modalNext = null;
+  currentIndex = 0;
+  images = [];
+
   constructor() {
-    this.modal = null;
-    this.modalImage = null;
-    this.modalCaption = null;
-    this.modalClose = null;
-    this.modalPrev = null;
-    this.modalNext = null;
-    this.currentIndex = 0;
-    this.images = [];
     this.init();
   }
 
@@ -1013,7 +1023,7 @@ class GalleryModal {
     }));
 
     // Agregar event listeners a cada imagen para hover
-    galleryItems.forEach((item, index) => {
+    for (const [index, item] of Array.from(galleryItems).entries()) {
       // Evento de hover para abrir modal
       item.addEventListener('mouseenter', () => this.openModalOnHover(index));
 
@@ -1022,7 +1032,7 @@ class GalleryModal {
 
       // Evento de mouseleave para cerrar modal si está abierto por hover
       item.addEventListener('mouseleave', () => this.closeModalOnHover());
-    });
+    }
 
     // Crear elementos del modal si no existen
     this.createModal();
@@ -1071,18 +1081,6 @@ class GalleryModal {
     // Variables para controlar el hover
     this.hoverTimeout = null;
     this.isHovering = false;
-  }
-
-  openModal(index) {
-    this.currentIndex = index;
-    this.updateModalImage();
-    this.modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevenir scroll del body
-  }
-
-  closeModal() {
-    this.modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restaurar scroll del body
   }
 
   prevImage() {
@@ -1192,28 +1190,28 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Crear indicadores
   if (indicatorsContainer) {
-    slides.forEach((_, index) => {
+    for (const [index] of Array.from(slides).entries()) {
       const indicator = document.createElement('button');
       indicator.className = 'proceso-modern-indicator';
       if (index === 0) indicator.classList.add('active');
       indicator.setAttribute('aria-label', `Paso ${index + 1}`);
       indicator.addEventListener('click', () => goToSlide(index));
       indicatorsContainer.appendChild(indicator);
-    });
+    }
   }
   
   const indicators = indicatorsContainer ? indicatorsContainer.querySelectorAll('.proceso-modern-indicator') : [];
   
   function updateCarousel() {
     // Actualizar slides
-    slides.forEach((slide, index) => {
+    for (const [index, slide] of Array.from(slides).entries()) {
       slide.classList.toggle('active', index === currentIndex);
-    });
+    }
     
     // Actualizar indicadores
-    indicators.forEach((indicator, index) => {
+    for (const [index, indicator] of Array.from(indicators).entries()) {
       indicator.classList.toggle('active', index === currentIndex);
-    });
+    }
     
     // Reiniciar barra de progreso
     if (progressBar) {
@@ -1289,5 +1287,5 @@ document.addEventListener('DOMContentLoaded', function() {
   startAutoPlay();
   
   // Limpiar al salir de la página
-  window.addEventListener('beforeunload', stopAutoPlay);
+  globalThis.addEventListener('beforeunload', stopAutoPlay);
 });

@@ -147,7 +147,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("../assets/img/image35.jpg") center/cover no-repeat;
+  background: url("assets/img/image35.jpg") center/cover no-repeat;
   padding: var(--spacing-xl) var(--spacing-md);
 }
 
@@ -370,10 +370,12 @@ ease-out;
 }
 
 .nav-btn svg {
-  width: 24px;
-  height: 24px;
-  fill: #c9a87c;
-  transition: transform 0.3s ease;
+  width: 57px;
+    height: 55px;
+    fill: #c9a87c;
+    border: 1px solid gray;
+    border-radius: 50px;
+    padding: 6px;
 }
 
 .nav-btn:hover:not(:disabled) {
