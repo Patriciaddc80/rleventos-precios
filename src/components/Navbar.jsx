@@ -29,13 +29,65 @@ const mobileMenuItems = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('inicio')
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isVerticalPanelOpen, setIsVerticalPanelOpen] = useState(false)
+  const [hamburgerColor, setHamburgerColor] = useState('white') // 'white' o 'brown'
+
+  // Función para detectar si el fondo es blanco o muy claro
+  const detectWhiteBackground = () => {
+    // Solo funciona en mobile
+    if (window.innerWidth > 767) {
+      return false
+    }
+
+    const navbar = document.querySelector('.navbar')
+    if (!navbar) return false
+
+    const rect = navbar.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    
+    // Obtener el elemento en la posición justo debajo del navbar
+    const element = document.elementFromPoint(centerX, centerY + 50)
+    if (!element) return false
+
+    // Obtener el color de fondo del elemento
+    const style = window.getComputedStyle(element)
+    let bgColor = style.backgroundColor
+
+    // Si el fondo es transparente, buscar en elementos padre
+    if (bgColor === 'rgba(0, 0, 0, 0)' || bgColor === 'transparent') {
+      let parent = element.parentElement
+      while (parent && parent !== document.body) {
+        const parentStyle = window.getComputedStyle(parent)
+        const parentBg = parentStyle.backgroundColor
+        if (parentBg !== 'rgba(0, 0, 0, 0)' && parentBg !== 'transparent') {
+          bgColor = parentBg
+          break
+        }
+        parent = parent.parentElement
+      }
+    }
+
+    // Verificar si el color es blanco o muy claro
+    if (!bgColor || bgColor === 'transparent' || bgColor === 'rgba(0, 0, 0, 0)') {
+      return false
+    }
+
+    // Extraer valores RGB
+    const rgbMatch = bgColor.match(/\d+/g)
+    if (!rgbMatch || rgbMatch.length < 3) return false
+
+    const [r, g, b] = rgbMatch.map(Number)
+    
+    // Considerar blanco si todos los valores RGB son mayores a 240 (muy claro)
+    // o si es exactamente rgb(255, 255, 255)
+    const isWhite = (r >= 240 && g >= 240 && b >= 240) || (r === 255 && g === 255 && b === 255)
+    
+    return isWhite
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-      
       const sections = menuItems.map(item => document.getElementById(item.id))
       const scrollPosition = window.scrollY + 100
 
@@ -45,12 +97,25 @@ const Navbar = () => {
           break
         }
       }
+
+      // Detectar si el fondo es blanco y cambiar el color del hamburger
+      if (detectWhiteBackground()) {
+        setHamburgerColor('brown')
+      } else {
+        setHamburgerColor('white')
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
     handleScroll() // Llamar una vez al montar
     
-    return () => window.removeEventListener('scroll', handleScroll)
+    // También detectar en resize
+    window.addEventListener('resize', handleScroll)
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
   }, [])
 
   const handleNavClick = (id) => {
@@ -94,7 +159,7 @@ const Navbar = () => {
   return (
     <>
       <nav 
-        className={`navbar mobile-only ${isScrolled ? 'scrolled' : ''}`} 
+        className="navbar mobile-only" 
         role="navigation" 
         aria-label="Navegación principal"
       >
@@ -121,7 +186,7 @@ const Navbar = () => {
         </div>
         
         <button 
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+          className={`hamburger ${isMenuOpen ? 'active' : ''} ${hamburgerColor === 'brown' ? 'hamburger-brown' : ''}`}
           id="hamburger"
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isMenuOpen}
