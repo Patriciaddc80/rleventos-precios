@@ -75,7 +75,7 @@ a {
 
 a:hover,
 a:focus {
-  color: var(--color-text);
+  color: var(--color-white);
   font-weight: var(--font-weight-medium);
   background: var(--color-primary);
   transform: translateY(-2px);

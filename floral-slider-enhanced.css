@@ -1,0 +1,760 @@
+/* ========================================
+   SLIDER FLORAL MEJORADO - TOTALMENTE RESPONSIVE
+   Compatible con todos los dispositivos
+   ======================================== */
+
+/* ==============================================
+   CONTENEDOR PRINCIPAL DEL SLIDER
+   ============================================== */
+
+.floral-slider-enhanced {
+  width: 100%;
+  background: transparent;
+}
+
+/* ==============================================
+   IMAGEN PRINCIPAL
+   ============================================== */
+
+.floral-main-image-container {
+  width: 80%;
+  aspect-ratio: 16/10;
+  border-radius: 16px;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  order: 2;
+  flex: 1;
+}
+
+.floral-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: opacity;
+}
+
+.floral-main-image.fade-out {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.floral-main-image.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==============================================
+   CONTENEDOR WRAPPER DEL SLIDER
+   ============================================== */
+
+.floral-slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  position: relative;
+  width: 100%;
+}
+
+/* ==============================================
+   CONTROLES DE NAVEGACIÓN (FLECHAS) - FUERA DE LA IMAGEN
+   ============================================== */
+
+.floral-nav-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 184, 150, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(212, 184, 150, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.floral-nav-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #d4b896;
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(212, 184, 150, 0.3);
+}
+
+.floral-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.floral-nav-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #8b6f47;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.floral-nav-btn:hover svg {
+  fill: #d4b896;
+}
+
+.floral-nav-prev {
+  order: 1;
+}
+
+.floral-nav-next {
+  order: 3;
+}
+
+.floral-nav-prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.floral-nav-next:hover svg {
+  transform: translateX(3px);
+}
+
+/* ==============================================
+   BARRA DE PROGRESO
+   ============================================== */
+
+.floral-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(212, 184, 150, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.floral-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4b896 0%, #c9a87c 100%);
+  width: 0%;
+  transition: width 5s linear;
+}
+
+.floral-progress-fill.paused {
+  transition: none;
+}
+
+/* ==============================================
+   THUMBNAILS / MINIATURAS
+   ============================================== */
+
+.floral-thumbnails-container {
+  padding: 15px 20px 20px;
+  background: transparent;
+  border-top: 1px solid rgba(212, 184, 150, 0.15);
+}
+
+.floral-thumbnails-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.floral-thumbnails-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 5px 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.floral-thumbnails-track::-webkit-scrollbar {
+  display: none;
+}
+
+.floral-thumbnail-item {
+  flex: 0 0 auto;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: transparent;
+}
+
+.floral-thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.floral-thumbnail-item:hover {
+  opacity: 0.9;
+  transform: translateY(-3px) scale(1.05);
+  border-color: rgba(212, 184, 150, 0.5);
+}
+
+.floral-thumbnail-item.active {
+  opacity: 1;
+  border-color: #d4b896;
+  box-shadow: 
+    0 4px 15px rgba(212, 184, 150, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* Flechas de navegación para thumbnails */
+.floral-thumb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(212, 184, 150, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.floral-thumb-nav:hover {
+  background: #fff;
+  border-color: #d4b896;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.floral-thumb-nav svg {
+  width: 16px;
+  height: 16px;
+  fill: #8b6f47;
+}
+
+.floral-thumb-prev {
+  left: -5px;
+}
+
+.floral-thumb-next {
+  right: -5px;
+}
+
+/* ==============================================
+   DOTS DE PAGINACIÓN (ALTERNATIVA A THUMBNAILS EN MÓVIL)
+   ============================================== */
+
+.floral-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  flex-wrap: wrap;
+}
+
+.floral-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(212, 184, 150, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.floral-dot:hover {
+  background: rgba(212, 184, 150, 0.6);
+  transform: scale(1.2);
+}
+
+.floral-dot.active {
+  background: #d4b896;
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* ==============================================
+   LIGHTBOX / MODAL DE IMAGEN GRANDE
+   ============================================== */
+
+.floral-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.floral-lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Ocultar slider cuando el lightbox está activo */
+body:has(.floral-lightbox.active) .floral-thumbnails-container,
+body:has(.floral-lightbox.active) .floral-dots {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.floral-lightbox-image {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 50px rgba(250, 0, 0, 0.5);
+}
+
+.floral-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.floral-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.floral-lightbox-close svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+.floral-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.floral-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.floral-lightbox-nav svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+
+.floral-lightbox-prev {
+  left: 20px;
+}
+
+.floral-lightbox-next {
+  right: 20px;
+}
+
+.floral-lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 25px;
+  border-radius: 25px;
+}
+
+/* Indicador de click para ampliar */
+.floral-zoom-hint {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #8b6f47;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.floral-zoom-hint svg {
+  width: 14px;
+  height: 14px;
+  fill: #8b6f47;
+}
+
+.floral-main-image-container:hover .floral-zoom-hint {
+  opacity: 1;
+}
+
+/* ==============================================
+   RESPONSIVE - MÓVIL PEQUEÑO (< 480px)
+   ============================================== */
+
+@media (max-width: 480px) {
+  .floral-slider-enhanced {
+    margin: 15px auto;
+    border-radius: 12px;
+  }
+
+  .floral-main-image-container {
+    aspect-ratio: 4/5;
+  }
+
+  .floral-slider-wrapper {
+    gap: var(--spacing-sm);
+  }
+
+  .floral-nav-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floral-nav-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .floral-thumbnail-item {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    border-width: 2px;
+  }
+
+  .floral-thumbnails-container {
+    display: block;
+    padding: 8px 10px 10px;
+  }
+
+  .floral-thumbnails-track {
+    gap: 6px;
+    justify-content: flex-start;
+  }
+
+  .floral-dots {
+    display: none;
+  }
+
+  .floral-zoom-hint {
+    display: none;
+  }
+
+  .floral-lightbox-nav {
+    width: 45px;
+    height: 45px;
+  }
+
+  .floral-lightbox-nav svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .floral-lightbox-prev {
+    left: 10px;
+  }
+
+  .floral-lightbox-next {
+    right: 10px;
+  }
+
+  .floral-lightbox-close {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .floral-lightbox-close svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - MÓVIL (481px - 767px)
+   ============================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .floral-slider-enhanced {
+    margin: 20px auto;
+    border-radius: 14px;
+  }
+
+  .floral-main-image-container {
+    aspect-ratio: 3/4;
+  }
+
+  .floral-slider-wrapper {
+    gap: var(--spacing-xs);
+  }
+
+  .floral-nav-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .floral-nav-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .floral-thumbnail-item {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .floral-thumbnails-container {
+    display: block;
+    padding: 10px 12px 12px;
+  }
+
+  .floral-thumbnails-track {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .floral-dots {
+    display: none;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - TABLET (768px - 1023px)
+   ============================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .floral-slider-enhanced {
+    margin: 25px auto;
+  }
+
+  .floral-main-image-container {
+    aspect-ratio: 16/11;
+  }
+
+  .floral-thumbnail-item {
+    width: 65px;
+    height: 65px;
+  }
+
+  .floral-thumbnails-track {
+    gap: 10px;
+  }
+
+  .floral-dots {
+    display: none;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - DESKTOP (>= 1024px)
+   ============================================== */
+
+@media (min-width: 1024px) {
+  .floral-slider-enhanced {
+    margin: 30px auto;
+    max-width: 900px;
+  }
+
+  .floral-main-image-container {
+    aspect-ratio: 16/10;
+    cursor: pointer;
+  }
+
+  .floral-main-image-container:hover .floral-main-image {
+    transform: none;
+  }
+
+  .floral-main-image {
+    transition: opacity 0.5s ease-in-out, transform 0.4s ease;
+  }
+
+  .floral-thumbnail-item {
+    width: 75px;
+    height: 75px;
+  }
+
+  .floral-thumbnails-track {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .floral-thumbnails-container {
+    padding: 18px 25px 22px;
+  }
+
+  .floral-dots {
+    display: none;
+  }
+
+  /* Ocultar flechas de thumbnails si caben todas */
+  .floral-thumb-nav {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .floral-thumbnails-wrapper:hover .floral-thumb-nav {
+    opacity: 1;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - DESKTOP GRANDE (>= 1440px)
+   ============================================== */
+
+@media (min-width: 1440px) {
+  .floral-slider-enhanced {
+    max-width: 1000px;
+  }
+
+  .floral-thumbnail-item {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+/* ==============================================
+   ANIMACIONES
+   ============================================== */
+
+@keyframes floralSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floralPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Reducir movimiento para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .floral-main-image,
+  .floral-nav-btn,
+  .floral-thumbnail-item,
+  .floral-progress-fill,
+  .floral-lightbox {
+    transition: none !important;
+  }
+}
+
+/* ==============================================
+   OCULTAR ELEMENTOS ANTIGUOS
+   ============================================== */
+
+/* En móvil: ocultar slider viejo cuando esté el nuevo */
+.floral-slider-enhanced ~ .floral-carousel-wrapper,
+.floral-slider-enhanced ~ .floral-slider-desktop {
+  display: none !important;
+}
+
+/* Compatibilidad con la versión desktop existente */
+@media (min-width: 1024px) {
+  .text-col .floral-slider-desktop {
+    display: none !important;
+  }
+  
+  .text-col .floral-carousel-wrapper {
+    display: none !important;
+  }
+}
+
+/* ==============================================
+   ESTADOS DE CARGA
+   ============================================== */
+
+.floral-slider-enhanced.loading .floral-main-image {
+  opacity: 0.5;
+}
+
+.floral-loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(212, 184, 150, 0.3);
+  border-top-color: #d4b896;
+  border-radius: 50%;
+  animation: floralSpin 0.8s linear infinite;
+  display: none;
+}
+
+.floral-slider-enhanced.loading .floral-loading-spinner {
+  display: block;
+}
+
+@keyframes floralSpin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

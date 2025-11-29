@@ -1,0 +1,162 @@
+/* ========================================
+   DECORACIÓN FLORAL - PRESENTACIÓN MEJORADA
+   ======================================== */
+
+.decoracion-floral-section {
+  background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+.decoracion-floral-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(212, 184, 150, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(212, 184, 150, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.decoracion-floral-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Asegurar que el botón de precio tenga 50% de ancho */
+.decoracion-floral-content .btn-price {
+  width: 15%;
+}
+/* ========================================
+   RESPONSIVE - PANTALLAS GRANDES (>= 1024px)
+   ======================================== */
+
+@media (min-width: 1024px) {
+
+  .decoracion-floral-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .decoracion-floral-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    padding: var(--spacing-xl);
+    max-width: 900px;
+  }
+
+  /* Asegurar que el botón de precio tenga 50% de ancho */
+  .decoracion-floral-content .btn-price {
+    width: 20% !important;
+    padding: 0px 8px !important;
+    font-size: 1.9rem !important;
+    strong {
+      font-size: 1.9rem !important;
+      font-weight: 900 !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+      letter-spacing: 0.5px !important;
+    }
+  }
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (768px - 1023px)
+   ======================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .decoracion-floral-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .decoracion-floral-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    padding: var(--spacing-lg);
+  }
+
+  .floral-slider-enhanced {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - PANTALLAS PEQUEÑAS (< 768px)
+   ======================================== */
+
+@media (max-width: 767px) {
+  .decoracion-floral-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .decoracion-floral-intro {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .decoracion-floral-text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    padding: var(--spacing-md);
+    text-align: justify;
+  }
+
+  .floral-slider-enhanced {
+    margin: var(--spacing-md) auto;
+  }
+
+  /* Asegurar que el botón de precio tenga 50% de ancho */
+  .decoracion-floral-content .btn-price {
+    width: 15%;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL PEQUEÑO (< 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+  .decoracion-floral-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .decoracion-floral-text {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    padding: var(--spacing-sm);
+  }
+
+  /* Asegurar que el botón de precio tenga 50% de ancho */
+  .decoracion-floral-content .btn-price {
+    width: 50%;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL MUY PEQUEÑO (< 380px)
+   ======================================== */
+
+@media (max-width: 380px) {
+  /* Asegurar que el botón de precio tenga 50% de ancho */
+  .decoracion-floral-content .btn-price {
+    width: 50%;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL EXTRA PEQUEÑO (< 320px)
+   ======================================== */
+
+@media (max-width: 320px) {
+  /* Asegurar que el botón de precio tenga 50% de ancho */
+  .decoracion-floral-content .btn-price {
+    width: 50%;
+  }
+}
+

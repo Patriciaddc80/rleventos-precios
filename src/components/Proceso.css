@@ -1,0 +1,425 @@
+/* ========================================
+   PROCESO - ESTILOS
+   ======================================== */
+
+#proceso {
+  scroll-margin-top: 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.proceso-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 600px;
+  margin: var(--spacing-xl) auto 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 var(--spacing-md);
+  justify-items: center;
+}
+
+.proceso-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-primary);
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  position: relative;
+  margin-top: 40px;
+}
+
+.proceso-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.proceso-number {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    135deg,
+    #d3af36 0%,
+    #b8941f 100%
+  );
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: 1.3rem;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.proceso-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.proceso-content h3 {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.proceso-content p {
+  font-size: 12px;
+  text-align: justify;
+  text-align-last: center;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  font-weight: 600;
+}
+
+/* Pantallas pequeñas - 2 columnas */
+@media (max-width: 767px) {
+  .proceso-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 500px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+
+  .proceso-step {
+    max-width: 100%;
+    padding: 10px 8px;
+    gap: 6px;
+    margin-top: 25px;
+    overflow: visible;
+  }
+
+  .proceso-number {
+    width: 36px;
+    height: 25px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-black);
+    font-size: 1rem;
+    flex-shrink: 0;
+    top: -18px;
+    z-index: 20;
+  }
+
+  .proceso-content {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .proceso-content h3 {
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    font-weight: 800;
+  }
+
+  .proceso-content p {
+    font-size: 0.6rem;
+    line-height: 1.25;
+    text-align: justify;
+    text-align-last: center;
+    margin: 0;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 480px) {
+  .proceso-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+  
+  .proceso-step {
+    max-width: 100%;
+    padding: 8px 6px;
+    gap: 5px;
+    margin-top: 22px;
+    overflow: visible;
+  }
+  
+  .proceso-number {
+    width: 36px;
+    height: 25px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-black);
+    font-size: 1rem;
+    flex-shrink: 0;
+    top: -16px;
+    z-index: 20;
+  }
+
+  .proceso-content {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .proceso-content h3 {
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+    line-height: 1.15;
+    word-wrap: break-word;
+    font-weight: 800;
+  }
+  
+  .proceso-content p {
+    font-size: 0.6rem;
+    line-height: 1.2;
+    margin: 0;
+    text-align: justify;
+    text-align-last: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-weight: 600;
+  }
+}
+
+/* Pantallas de 380px - cajitas más pequeñas */
+@media (max-width: 380px) {
+  .proceso-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-width: 340px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+  
+  .proceso-step {
+    max-width: 100%;
+    padding: 6px 5px;
+    gap: 4px;
+    margin-top: 18px;
+    overflow: visible;
+  }
+  
+  .proceso-number {
+    width: 36px;
+    height: 25px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-black);
+    font-size: 1rem;
+    flex-shrink: 0;
+    top: -14px;
+    z-index: 20;
+  }
+
+  .proceso-content {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .proceso-content h3 {
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+    line-height: 1.1;
+    word-wrap: break-word;
+    font-weight: 800;
+  }
+  
+  .proceso-content p {
+    font-size: 0.55rem;
+    line-height: 1.15;
+    text-align: justify;
+    text-align-last: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-weight: 600;
+  }
+}
+
+/* Pantallas de 320px - cajitas aún más pequeñas */
+@media (max-width: 320px) {
+  .proceso-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    max-width: 300px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+  
+  .proceso-step {
+    max-width: 100%;
+    padding: 5px 4px;
+    gap: 3px;
+    margin-top: 15px;
+    overflow: visible;
+  }
+  
+  .proceso-number {
+    width: 36px;
+    height: 25px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-black);
+    font-size: 1rem;
+    flex-shrink: 0;
+    top: -13px;
+    z-index: 20;
+  }
+
+  .proceso-content {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .proceso-content h3 {
+    font-size: 0.6rem;
+    margin-bottom: 2px;
+    line-height: 1.1;
+    word-wrap: break-word;
+    font-weight: 800;
+  }
+  
+  .proceso-content p {
+    font-size: 0.5rem;
+    line-height: 1.1;
+    text-align: justify;
+    text-align-last: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-weight: 600;
+  }
+}
+
+/* Pantallas medianas - mantener grid 2x2 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .proceso-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 700px;
+  }
+
+  .proceso-step {
+    max-width: 340px;
+    padding: 18px;
+    margin-top: 45px;
+  }
+
+  .proceso-number {
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+    top: -40px;
+  }
+
+  .proceso-content h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  .proceso-content p {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+/* Pantallas grandes - grid 4 columnas y fondo gris */
+@media (min-width: 1024px) {
+  .proceso-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+  }
+
+  .proceso-step {
+    max-width: 100%;
+    padding: 20px;
+    margin-top: 50px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+  }
+
+  .proceso-step:hover {
+    background: #eeeeee;
+    border-color: var(--color-primary);
+  }
+
+  .proceso-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    top: -45px;
+  }
+
+  .proceso-content h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .proceso-content p {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+}
+
+/* Pantallas de 1200px o más - número dentro de la cajita */
+@media (min-width: 1200px) {
+  .proceso-step {
+    margin-top: 20px;
+    
+  }
+
+  .proceso-number {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+}

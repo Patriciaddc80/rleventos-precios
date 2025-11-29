@@ -1,0 +1,19 @@
+/* Importar todas las hojas de estilo existentes */
+@import '../variables.css';
+@import '../base.css';
+@import '../layout.css';
+@import '../components.css';
+@import '../floral-slider-enhanced.css';
+@import './styles/shared.css';
+
+/* Reset adicional para React */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+

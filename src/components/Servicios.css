@@ -1,0 +1,83 @@
+/* Estilos  REACT específicos de servicios si es necesario */
+
+#servicios {
+  scroll-margin-top: 70px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4%;
+  max-width: 100%;
+}
+
+.service-card {
+  background: var(--color-white);
+  padding: 10px;
+  width: 100%;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-primary);
+  filter: saturate(1.1) hue-rotate(5deg) sepia(0.1);
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  background: var(--color-bg-lighter);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-normal);
+}
+.service-card:hover .service-icon {
+  background: var(--color-primary);
+}
+.service-icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.service-card h3 {
+  font-size: 14px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+@media (max-width: 480px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  .service-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .service-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  .service-card h3 {
+    font-size: 12px;
+  }
+  .service-card p {
+    font-size: 10px;
+  }
+  .service-card {
+    padding: 8px;
+    min-height: 100px;
+    gap: var(--spacing-xs);
+  }
+}
+@media (max-width: 320px) {
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--spacing-sm);
+  }
+}

@@ -1,0 +1,130 @@
+/* ========================================
+   RINCONES - ESTILOS
+   ======================================== */
+
+#rincones {
+  scroll-margin-top: 70px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-lighter);
+  margin-top: var(--spacing-sm);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rincones-container {
+  margin: var(--spacing-xl) 0;
+}
+
+.rincon-grid-inline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rincon-item-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-primary);
+  min-height: 140px;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.rincon-item-inline:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.rincon-item-inline img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: var(--spacing-xs);
+  filter: brightness(0) saturate(100%);
+  opacity: 0.7;
+  transition: opacity var(--transition-normal);
+}
+
+.rincon-item-inline:hover img {
+  opacity: 1;
+}
+
+.rincon-item-inline span {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 480px) {
+  .rincon-grid-inline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  .rincon-item-inline {
+    padding: var(--spacing-sm);
+    min-height: 100px;
+    gap: var(--spacing-xs);
+  }
+  
+  .rincon-item-inline img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .rincon-item-inline span {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .rincon-grid-inline {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rincon-grid-inline {
+    gap: var(--spacing-lg);
+  }
+  
+  .rincon-item-inline {
+    padding: var(--spacing-xl);
+    min-height: 160px;
+  }
+  
+  .rincon-item-inline img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .rincon-item-inline span {
+    font-size: 1.1rem;
+  }
+}
+
+
