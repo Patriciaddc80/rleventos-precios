@@ -1,4 +1,5 @@
 import './Precios.css'
+import { mensajesConsulta } from '../utils/whatsapp'
 
 const Precios = () => {
   return (
@@ -27,7 +28,7 @@ const Precios = () => {
               <li>Control de presupuesto</li>
             </ul>
             <a 
-              href="https://wa.me/34657092014" 
+              href={mensajesConsulta.servicioIntegral()} 
               className="btn-price btn-price-precios" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -56,7 +57,7 @@ const Precios = () => {
             </p>
             
             <a 
-              href="https://wa.me/34657092014" 
+              href={mensajesConsulta.asesoramientoCoordinacion()} 
               className="btn-price btn-price-precios" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -82,7 +83,7 @@ const Precios = () => {
               A tres meses de la boda, comenzamos a poner en marcha todos los preparativos: Elaboramos un cronograma detallado para que cada momento sea verdaderamente mágico.
             </p>
             <a 
-              href="https://wa.me/34657092014" 
+              href={mensajesConsulta.coordinacionDia()} 
               className="btn-price btn-price-precios" 
               target="_blank" 
               rel="noopener noreferrer"

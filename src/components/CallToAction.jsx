@@ -1,4 +1,5 @@
 import './CallToAction.css'
+import { mensajesConsulta } from '../utils/whatsapp'
 
 const CallToAction = () => {
   return (
@@ -10,7 +11,7 @@ const CallToAction = () => {
             Contacta con nosotros y déjanos ayudarte a crear el evento de vuestros sueños
           </p>
           <a 
-            href="https://wa.me/34657092014" 
+            href={mensajesConsulta.consultaGeneral()} 
             className="cta-button"
             target="_blank"
             rel="noopener noreferrer"

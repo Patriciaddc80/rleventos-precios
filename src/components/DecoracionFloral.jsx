@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import './DecoracionFloral.css'
+import { mensajesConsulta } from '../utils/whatsapp'
 
 const floralImages = [
   '/assets/deco-florales/1130.webp',
@@ -203,7 +204,7 @@ const DecoracionFloral = () => {
 
           {/* Botón de precio */}
           <a 
-            href="https://wa.me/34657092014" 
+            href={mensajesConsulta.decoracionFloral()} 
             className="btn-price btn-price-decoracion" 
             target="_blank" 
             rel="noopener noreferrer"

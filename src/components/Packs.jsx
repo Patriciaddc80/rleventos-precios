@@ -1,4 +1,5 @@
 import './Packs.css'
+import { mensajesConsulta } from '../utils/whatsapp'
 
 const Packs = () => {
   const packs = [
@@ -10,7 +11,8 @@ const Packs = () => {
         'Control de tiempos'
       ],
       featured: false,
-      price: '800€'
+      price: '800€',
+      consultaWhatsApp: mensajesConsulta.packBasico()
     },
     {
       title: 'Pack Completo',
@@ -22,7 +24,8 @@ const Packs = () => {
         'Decoración Floral'
       ],
       featured: false,
-      price: '3500€'
+      price: '3500€',
+      consultaWhatsApp: mensajesConsulta.packCompleto()
     },
     {
       title: 'Pack Premium',
@@ -33,7 +36,8 @@ const Packs = () => {
         'Decoración Floral'
       ],
       featured: true,
-      price: '5000€'
+      price: '5000€',
+      consultaWhatsApp: mensajesConsulta.packPremium()
     }
   ]
 
@@ -65,7 +69,7 @@ const Packs = () => {
                   ))}
                 </ul>
                 <a 
-                  href="https://wa.me/34657092014" 
+                  href={pack.consultaWhatsApp || mensajesConsulta.consultaGeneral()} 
                   className="btn-price btn-price-packs" 
                   target="_blank" 
                   rel="noopener noreferrer"
