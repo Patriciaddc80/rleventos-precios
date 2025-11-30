@@ -85,7 +85,7 @@ const Footer = () => {
             <h4 className="footer-section-title">Síguenos</h4>
             <div className="footer-social">
               <a 
-                href="https://www.instagram.com/rociolopezeventos" 
+                href="https://www.instagram.com/rl__eventos/" 
                 className="footer-social-link footer-social-instagram"
                 target="_blank"
                 rel="noopener noreferrer"

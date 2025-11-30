@@ -263,7 +263,7 @@ const Navbar = () => {
           <li className="nav-menu-social-item">
             <div className="nav-menu-social">
               <a 
-                href="https://www.instagram.com/rociolopezeventos" 
+                href="https://www.instagram.com/rl__eventos/" 
                 className="nav-menu-social-link nav-menu-social-instagram"
                 target="_blank"
                 rel="noopener noreferrer"
