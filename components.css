@@ -824,7 +824,7 @@
   color: #d4af37;
   border: 1px solid #d4af37;
   width: 60px;
-  background: transparent;
+  background-color: rgba(0, 0, 0, 0.14);
   height: 60px;
 }
 
