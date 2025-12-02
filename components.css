@@ -845,18 +845,11 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background: var(--color-primary);
-  border: none;
-  color: var(--color-white);
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  background-color: rgba(0, 0, 0, 0.14);
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-lg);
 }
 
 /* ========================================
