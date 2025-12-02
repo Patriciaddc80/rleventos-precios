@@ -822,17 +822,10 @@
   top: 50%;
   transform: translateY(-50%);
   color: #d4af37;
-  border: 1px solid #9e9e9e1f;
+  border: 1px solid #d4af37;
   width: 60px;
   background: transparent;
   height: 60px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-lg);
 }
 
 .slideshow-btn:hover {
