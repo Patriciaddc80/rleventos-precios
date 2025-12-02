@@ -821,7 +821,6 @@
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  background: #8b6f47;
   border: none;
   color: #ffffff;
   width: 60px;
@@ -836,7 +835,6 @@
 }
 
 .slideshow-btn:hover {
-  background: #7a5f3a;
   color: #ffffff;
   transform: translateY(-50%) scale(1.1);
 }
